@@ -1,0 +1,18 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let post of postList">
+    <mat-card class="example-card">
+      <img mat-card-image src="{{post.photoUrl}}" alt="img">
+      <mat-card-content>
+        <h1>
+          {{post.title}}
+        </h1>
+        <p>
+          {{post.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button *ngFor="let tag of post.tags">{{tag}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

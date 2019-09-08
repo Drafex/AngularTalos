@@ -10,6 +10,7 @@ import { PostComponent } from './post/post.component';
 import {PostService} from './post/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]

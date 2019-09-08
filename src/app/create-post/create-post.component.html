@@ -1,3 +1,33 @@
-<p>
-  create-post works!
-</p>
+<form (ngSubmit) = "createPost()" >
+  <div>
+    <label for="title">Title</label>
+    <div>
+      <input type="text" class="form-control" [(ngModel)]="post.title" name="title">
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <div>
+      <textarea name="description"rows="8" cols="80" class="form-control" [(ngModel)]="post.description"></textarea>
+    </div>
+  </div>
+
+  <div>
+    <label for="tags">Tags</label>
+    <div>
+      <input type="text" class="form-control" id="tags">
+      <button mat-raised-button color="primary" type="button" (click)="addTag(document.getElementById('tags').value)">Add Tag</button>
+    </div>
+    <div *ngFor="let tag of tags">
+      <label id="{{tag}}">{{tag}}</label> <button mat-button type="button" (click)="deleteTag(tag)">X</button>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </div>
+  </div>
+
+</form>

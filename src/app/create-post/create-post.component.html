@@ -1,41 +1,72 @@
 <form (ngSubmit) = "createPost()" >
-  <div>
-    <label for="title">Title</label>
-    <div>
-      <input type="text" class="form-control" [(ngModel)]="post.title" name="title">
-    </div>
-  </div>
+  <table>
+   <tr>
+     <td>
+       <label for="title">Title</label>
+       <div>
+         <input type="text" class="form-control" [(ngModel)]="post.title" name="title">
+       </div>
+     </td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td>
+       <label for="image">image</label>
+       <div>
+         <input type="file" class="form-control" (change)="fileSelected($event)" name="image">
+       </div>
+     </td>
+   </tr>
+   <tr>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+     <td></td>
+     <td>
+       <div>
+         <img src="" alt="preview" id="preview" class="preview">
+       </div>
+     </td>
+   </tr>
+   <tr>
+     <td>
+       <label for="description">Description</label>
+       <div>
+         <textarea name="description"rows="8" cols="80" class="form-control" [(ngModel)]="post.description"></textarea>
+       </div>
+     </td>
+   </tr>
+   <tr>
+     <table>
+       <tr>
+         <td>
+           <label for="tags">Tags</label>
+           <div>
+             <input type="text" class="form-control" id="tags">
+           </div>
+           <div *ngFor="let tag of tags">
+             <label id="{{tag}}">{{tag}}</label> <button mat-button type="button" (click)="deleteTag(tag)">X</button>
+           </div>
+         </td>
+         <td>
 
-  <div>
-    <label for="description">Description</label>
-    <div>
-      <textarea name="description"rows="8" cols="80" class="form-control" [(ngModel)]="post.description"></textarea>
-    </div>
-  </div>
+         </td>
+         <td>
+            <button mat-raised-button color="primary" type="button" (click)="addTag(document.getElementById('tags').value)">Add Tag</button>
+         </td>
+       </tr>
+    </table>
 
-  <div>
-    <label for="tags">Tags</label>
-    <div>
-      <input type="text" class="form-control" id="tags">
-      <button mat-raised-button color="primary" type="button" (click)="addTag(document.getElementById('tags').value)">Add Tag</button>
-    </div>
-    <div *ngFor="let tag of tags">
-      <label id="{{tag}}">{{tag}}</label> <button mat-button type="button" (click)="deleteTag(tag)">X</button>
-    </div>
-  </div>
-
-  <div>
-    <label for="image">image</label>
-    <div>
-      <input type="file" class="form-control" (change)="fileSelected($event)" name="image">
-      <img src="" alt="preview" id="preview" class="preview">
-    </div>
-  </div>
-
-  <div>
-    <div>
-      <button mat-raised-button color="primary" type="submit">Create</button>
-    </div>
-  </div>
-
+   </tr>
+   <tr></tr><tr></tr><tr></tr><tr></tr>
+   <tr>
+     <div>
+       <button mat-raised-button color="primary" type="submit">Create</button>
+     </div>
+   </tr>
+ </table>
 </form>

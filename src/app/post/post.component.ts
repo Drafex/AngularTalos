@@ -13,8 +13,17 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.postService.getPost().subscribe(
-      posts => this.postList = posts
+      posts => {
+        this.postList = posts;
+
+        this.postList.forEach(function (value) {
+          if (value.photoUrl[0] != '/') {
+            value.photoUrl = '/'.concat(value.photoUrl);
+          }
+        });
+      }
     );
+
   }
 
 }

@@ -23,6 +23,8 @@ export class CreatePostComponent implements OnInit {
 ) { }
 
   ngOnInit() {
+    document.getElementById("buttonplus").style.visibility = 'hidden';
+    document.getElementById("buttonpost").style.visibility = 'visible';
   }
 
   public createPost():void{

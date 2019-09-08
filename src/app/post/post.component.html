@@ -1,18 +1,14 @@
-<mat-grid-list cols="3" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let post of postList">
-    <mat-card class="example-card">
-      <img mat-card-image src="http://localhost:3000{{post.photoUrl}}" alt="img">
-      <mat-card-content>
-        <h1>
-          {{post.title}}
-        </h1>
-        <p>
-          {{post.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button *ngFor="let tag of post.tags">{{tag}}</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-card class="card-picture" *ngFor="let post of postList">
+    <img  mat-card-image src="http://localhost:3000{{post.photoUrl}}">
+    <mat-card-title>
+      <span>{{post.title}}</span>
+    </mat-card-title>
+    <mat-card-content fxLayout.gt-xs="row" fxLayout.xs="column">
+      <span fxFlex="100%">{{post.description}}</span>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button *ngFor="let tag of post.tags">{{tag}}</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

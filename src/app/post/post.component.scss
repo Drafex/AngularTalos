@@ -1,8 +1,12 @@
-.example-card {
-  width: 50%;
+.img {
+  width: 100%;
+  margin-bottom: 18%;
 }
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.card-picture {
+  width: 23%;
+  margin-bottom: 2%;
+}
+.container {
+  min-height: 100%;
+  width: 100%;
 }

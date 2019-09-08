@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes: Routes =[
   {path: '', redirectTo:'/list-post',pathMatch:'full'},
@@ -33,7 +34,8 @@ const routes: Routes =[
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FlexLayoutModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]

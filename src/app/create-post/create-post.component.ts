@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {PostInfo} from '../post/postInfo';
-import {ViewChild, ElementRef} from '@angular/core';
+import {ElementRef} from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import {PostService} from '../post/post.service';
 import { Router } from '@angular/router';
@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class CreatePostComponent implements OnInit {
 
   private post:PostInfo = new PostInfo();
-  tags: Array<string> = [];
+  private tags: Array<string> = [];
+  private selectedFile:File = null;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -27,7 +28,9 @@ export class CreatePostComponent implements OnInit {
   public createPost():void{
     this.post.tags = this.tags;
     this.postService.createPost(this.post).subscribe(
-      response => this.router.navigate(['/list-post'])
+      response => {
+        this.uploadImage(response.id);
+      }
     );
   }
 
@@ -44,6 +47,20 @@ export class CreatePostComponent implements OnInit {
     });
 
     this.tags = filtered;
+  }
+
+  public fileSelected(event):void{
+    this.selectedFile = <File>event.target.files[0];
+    var preview = document.getElementById("preview");
+    preview.src = URL.createObjectURL(this.selectedFile);
+  }
+
+  public uploadImage(id:string){
+    const image = new FormData();
+    image.append('image',this.selectedFile,this.selectedFile.name)
+    this.postService.uploadImage(image,id).subscribe(
+      response => this.router.navigate(['/list-post'])
+    );
   }
 
 }

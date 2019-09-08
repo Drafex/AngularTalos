@@ -1,7 +1,7 @@
 <mat-grid-list cols="3" rowHeight="1:1">
   <mat-grid-tile *ngFor="let post of postList">
     <mat-card class="example-card">
-      <img mat-card-image src="{{post.photoUrl}}" alt="img">
+      <img mat-card-image src="http://localhost:3000{{post.photoUrl}}" alt="img">
       <mat-card-content>
         <h1>
           {{post.title}}

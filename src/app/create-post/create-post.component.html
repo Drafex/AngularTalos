@@ -25,6 +25,14 @@
   </div>
 
   <div>
+    <label for="image">image</label>
+    <div>
+      <input type="file" class="form-control" (change)="fileSelected($event)" name="image">
+      <img src="" alt="preview" id="preview" class="preview">
+    </div>
+  </div>
+
+  <div>
     <div>
       <button mat-raised-button color="primary" type="submit">Create</button>
     </div>

@@ -1,5 +1,5 @@
 export class PostInfo {
-id: number;
+id: string;
 title: string;
 description: string;
 photoUrl: string;

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import {POST} from './postTemp.json';
 import {PostInfo} from './postInfo'
 import {Observable} from 'rxjs';
-import {of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
@@ -10,7 +8,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class PostService {
   private urlGet:string = 'http://localhost:3000/posts';
-
+  private urlPut:string = this.urlGet;
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http:HttpClient) { }
@@ -22,5 +20,12 @@ export class PostService {
 
   createPost(post:PostInfo):Observable<PostInfo>{
     return this.http.post<PostInfo>(this.urlGet,post,{headers: this.httpHeaders})
+  }
+
+  uploadImage(image:FormData,id:string):Observable<File>{
+    this.urlPut = this.urlPut.concat('/');
+    this.urlPut = this.urlPut.concat(id);
+    this.urlPut = this.urlPut.concat("/picture");
+    return this.http.put<File>(this.urlPut,image)
   }
 }

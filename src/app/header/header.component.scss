@@ -1,7 +1,6 @@
-.example-icon {
-  padding: 0 14px;
+.add-post-icon{
+  font-size: 30px;
 }
-
 .example-spacer {
   flex: 1 1 auto;
 }
@@ -13,3 +12,7 @@
 .logo-name{
   font-size: 25px;
 }
+
+a .add-post { display: none; }
+a:hover .add-post-icon { display: none; }
+a:hover .add-post { display: inline; }

@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {PostInfo} from '../post/postInfo';
 import {ViewChild, ElementRef} from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import {PostService} from '../post/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -14,15 +16,19 @@ export class CreatePostComponent implements OnInit {
   tags: Array<string> = [];
 
   constructor(
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private postService:PostService,
+    private router:Router
 ) { }
 
   ngOnInit() {
   }
 
   public createPost():void{
-    console.log("Clicked");
-    console.log(this.post);
+    this.post.tags = this.tags;
+    this.postService.createPost(this.post).subscribe(
+      response => this.router.navigate(['/list-post'])
+    );
   }
 
   public addTag(element:ElementRef):void{

@@ -14,9 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes =[
-  {path: '', redirectTo:'/post-list',pathMatch:'full'},
-  {path: 'post-list', component:PostComponent},
-  {path: 'post-create', component:CreatePostComponent}
+  {path: '', redirectTo:'/list-post',pathMatch:'full'},
+  {path: 'list-post', component:PostComponent},
+  {path: 'create-post', component:CreatePostComponent}
 ]
 
 

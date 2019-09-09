@@ -13,11 +13,13 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ViewPostComponent } from './view-post/view-post.component';
 
 const routes: Routes =[
   {path: '', redirectTo:'/list-post',pathMatch:'full'},
   {path: 'list-post', component:PostComponent},
-  {path: 'create-post', component:CreatePostComponent}
+  {path: 'create-post', component:CreatePostComponent},
+  {path: 'view-post/:id', component:ViewPostComponent}
 ]
 
 
@@ -26,7 +28,8 @@ const routes: Routes =[
     AppComponent,
     HeaderComponent,
     PostComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,

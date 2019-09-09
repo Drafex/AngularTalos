@@ -7,8 +7,9 @@
     <mat-card-content fxLayout.gt-xs="row" fxLayout.xs="column">
       <span fxFlex="100%">{{post.description}}</span>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions fxLayout.gt-xs="row" fxLayout.xs="column">
       <button mat-button *ngFor="let tag of post.tags">{{tag}}</button>
+      <button mat-raised-button color="primary" type="button" [routerLink]="['/view-post', post.id]">View</button>
     </mat-card-actions>
   </mat-card>
 </div>

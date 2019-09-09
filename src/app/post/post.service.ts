@@ -8,14 +8,19 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class PostService {
   private urlGet:string = 'http://localhost:3000/posts';
-  private urlPut:string = this.urlGet;
+  private urlGetWithId:string = 'http://localhost:3000/posts/';
+  private urlPut:string = 'http://localhost:3000/posts/';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http:HttpClient) { }
 
   getPost():Observable<PostInfo[]>{
-    //return of(POST) || of([]);
     return this.http.get<PostInfo[]>(this.urlGet);
+  }
+
+  getPostWithId(id:string):Observable<PostInfo>{
+    this.urlGetWithId.concat(id);
+    return this.http.get<PostInfo>(this.urlGetWithId);
   }
 
   createPost(post:PostInfo):Observable<PostInfo>{
@@ -23,7 +28,6 @@ export class PostService {
   }
 
   uploadImage(image:FormData,id:string):Observable<File>{
-    this.urlPut = this.urlPut.concat('/');
     this.urlPut = this.urlPut.concat(id);
     this.urlPut = this.urlPut.concat("/picture");
     return this.http.put<File>(this.urlPut,image)

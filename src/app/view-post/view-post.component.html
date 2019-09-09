@@ -1,0 +1,6 @@
+<div>
+  <img  mat-card-image src="http://localhost:3000{{post.photoUrl}}" class="image-preview">
+  <h1>{{post.title}}</h1>
+  <p>{{post.description}}</p>
+  <button mat-button *ngFor="let tag of post.tags">{{tag}}</button>
+</div>

@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ViewPostComponent } from './view-post/view-post.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes =[
   {path: '', redirectTo:'/list-post',pathMatch:'full'},
@@ -29,7 +30,8 @@ const routes: Routes =[
     HeaderComponent,
     PostComponent,
     CreatePostComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
